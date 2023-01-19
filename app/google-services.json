@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "697971425574",
+    "project_id": "medic-81ad8",
+    "storage_bucket": "medic-81ad8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:697971425574:android:8f519b6a78dbec617181e7",
+        "android_client_info": {
+          "package_name": "com.example.medic"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "697971425574-oh4q0rf6ricsl7c116isgciu7tjim5fv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCBvZ96gnQklLdYm2KDyqIrF4TH_1-oEo0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "697971425574-oh4q0rf6ricsl7c116isgciu7tjim5fv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:697971425574:android:dcb2d4a61b95e4a27181e7",
+        "android_client_info": {
+          "package_name": "com.example.quick_driver"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "697971425574-oh4q0rf6ricsl7c116isgciu7tjim5fv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCBvZ96gnQklLdYm2KDyqIrF4TH_1-oEo0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "697971425574-oh4q0rf6ricsl7c116isgciu7tjim5fv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -26,7 +26,7 @@ public class homepage extends AppCompatActivity {
         btn_user.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(homepage.this, MainActivity.class);
+                Intent intent = new Intent(homepage.this, user_login.class);
                 startActivity(intent);
                 finish();
             }
@@ -34,7 +34,7 @@ public class homepage extends AppCompatActivity {
         btn_foreman.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(homepage.this, MainActivity.class);
+                Intent intent = new Intent(homepage.this, foreman_login.class);
                 startActivity(intent);
                 finish();
             }
