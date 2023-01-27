@@ -11,7 +11,8 @@ import android.widget.TextView;
 public class homepage extends AppCompatActivity {
 
     Button btn_user,btn_foreman;
-    TextView btn_admin;
+
+   //TextView btn_admin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -3,6 +3,7 @@ package com.example.quick_driver;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -27,7 +28,7 @@ import java.util.Map;
 public class foreman_signup extends AppCompatActivity {
 
     public static final String TAG = "TAG";
-    EditText n,e,m,p,cp;
+    EditText n,e,m,p,l,cp;
     Button b;
     String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
     ProgressDialog progressDialog ;
@@ -35,6 +36,7 @@ public class foreman_signup extends AppCompatActivity {
     FirebaseUser mUser ;
     FirebaseFirestore fstore;
     String uid;
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,6 +47,7 @@ public class foreman_signup extends AppCompatActivity {
         p =(EditText) findViewById(R.id.edtSignUpPassword);
         cp =(EditText) findViewById(R.id.edtSignUpConfirmPassword);
         b =(Button) findViewById(R.id.btnSignUp);
+        l=(EditText) findViewById(R.id.licence);
         progressDialog = new ProgressDialog( this ) ;
         mAuth = FirebaseAuth.getInstance();
         mUser = mAuth.getCurrentUser();
@@ -61,6 +64,8 @@ public class foreman_signup extends AppCompatActivity {
                 String email = e.getText().toString();
                 String mobno = m.getText().toString();
                 String password = p.getText().toString();
+                String licence = l.getText().toString();
+
                 String confrimPassword = cp.getText().toString();
                 fstore = FirebaseFirestore.getInstance();
 
@@ -88,6 +93,7 @@ public class foreman_signup extends AppCompatActivity {
                                 user.put("name",name);
                                 user.put("email",email);
                                 user.put("phone",mobno);
+                                user.put("licence",licence);
                                 user.put("role", "foreman");
                                 documentReference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
                                     @Override
@@ -107,7 +113,7 @@ public class foreman_signup extends AppCompatActivity {
     }
 
     private void sendUserToNextActivity() {
-        Intent intent = new Intent(foreman_signup.this,homepage.class);
+        Intent intent = new Intent(foreman_signup.this,foreman_login.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
     }

@@ -21,10 +21,24 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.578" />
 
+    <!--    <Button-->
+<!--        android:id="@+id/button7"-->
+<!--        android:layout_width="162dp"-->
+<!--        android:layout_height="41dp"-->
+<!--        android:layout_marginStart="115dp"-->
+<!--        android:layout_marginEnd="202dp"-->
+<!--        android:text="User Location"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="0.0"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        app:layout_constraintVertical_bias="0.688" />-->
+
     <Button
         android:id="@+id/button7"
-        android:layout_width="162dp"
-        android:layout_height="41dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="115dp"
         android:layout_marginEnd="202dp"
         android:text="User Location"
@@ -33,7 +47,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.688" />
+        app:layout_constraintVertical_bias="0.713" />
 
     <ImageView
         android:id="@+id/imageView10"
@@ -44,5 +58,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.11"
-        app:srcCompat="@drawable/splash" />
+        app:srcCompat="@drawable/flash" />
 </androidx.constraintlayout.widget.ConstraintLayout>

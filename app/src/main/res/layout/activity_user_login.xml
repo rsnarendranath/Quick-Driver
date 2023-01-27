@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/splash"
+    android:background="@drawable/backgroud"
     android:scrollbars="none"
     tools:context=".user_login">
 
@@ -20,22 +20,22 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp">
 
-            <ImageView
-                android:id="@+id/imageView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/splash"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+<!--            <ImageView-->
+<!--                android:id="@+id/imageView"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:src="@drawable/splash"-->
+<!--                app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+<!--                app:layout_constraintTop_toTopOf="parent" />-->
 
-            <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:src="@drawable/splash"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+<!--            <ImageView-->
+<!--                android:layout_width="50dp"-->
+<!--                android:layout_height="50dp"-->
+<!--                android:src="@drawable/splash"-->
+<!--                app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                app:layout_constraintEnd_toEndOf="parent"-->
+<!--                app:layout_constraintTop_toTopOf="parent" />-->
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -43,7 +43,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
-            android:fontFamily="@font/gvtime"
             android:text="User Login"
             android:textAlignment="center"
             android:textColor="#80CBC4"
@@ -56,14 +55,13 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="36dp"
             android:hint="Email"
-            android:textColorHint="@color/black"
+            android:textColorHint="@color/white"
             app:boxStrokeColor="@color/black">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/edtSignInEmail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/comfortaabold"
                 android:singleLine="true"
                 android:textColor="#878080" />
 
@@ -75,7 +73,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:hint="Password"
-            android:textColorHint="@color/black"
+            android:textColorHint="@color/white"
             app:boxStrokeColor="@color/black"
             app:passwordToggleEnabled="true">
 
@@ -83,7 +81,6 @@
                 android:id="@+id/edtSignInPassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/comfortaabold"
                 android:inputType="textEmailAddress"
                 android:singleLine="true"
                 android:textColor="@color/black" />
@@ -107,7 +104,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:backgroundTint="#9DC8C4"
-                android:fontFamily=""
                 android:paddingStart="20dp"
                 android:paddingTop="10dp"
                 android:paddingEnd="20dp"
@@ -127,7 +123,6 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/comfortaalight"
                 android:text="Don't Have an Account ?"
                 android:textColor="@color/white"
                 android:textSize="14sp" />
@@ -137,9 +132,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
-                android:fontFamily="@font/comfortaabold"
                 android:text="Sign Up"
-                android:textColor="@color/red"
+                android:textColor="@color/white"
                 android:textSize="14sp" />
 
         </LinearLayout>
