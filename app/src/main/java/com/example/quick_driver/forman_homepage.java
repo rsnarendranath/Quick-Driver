@@ -41,7 +41,7 @@ Button profile,m;
         m.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(forman_homepage.this,homepage.class);
+                Intent intent = new Intent(forman_homepage.this,map.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);
             }
