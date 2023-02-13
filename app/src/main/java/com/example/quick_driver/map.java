@@ -11,6 +11,7 @@ package com.example.quick_driver;
         import android.location.Location;
         import android.nfc.Tag;
         import android.os.Bundle;
+        import android.util.Log;
         import android.view.WindowManager;
 
         import com.google.android.gms.location.FusedLocationProviderClient;
@@ -21,8 +22,13 @@ package com.example.quick_driver;
         import com.google.android.gms.maps.SupportMapFragment;
         import com.google.android.gms.maps.model.LatLng;
         import com.google.android.gms.maps.model.MarkerOptions;
+        import com.google.android.gms.tasks.OnFailureListener;
         import com.google.android.gms.tasks.OnSuccessListener;
         import com.google.android.gms.tasks.Task;
+        import com.google.firebase.auth.FirebaseAuth;
+        import com.google.firebase.auth.FirebaseUser;
+        import com.google.firebase.firestore.DocumentReference;
+        import com.google.firebase.firestore.FirebaseFirestore;
         import com.karumi.dexter.Dexter;
         import com.karumi.dexter.PermissionToken;
         import com.karumi.dexter.listener.PermissionDeniedResponse;
@@ -31,6 +37,7 @@ package com.example.quick_driver;
         import com.karumi.dexter.listener.single.PermissionListener;
 
         import java.security.Permission;
+        import java.util.HashMap;
         import java.util.Map;
 
 public class map extends AppCompatActivity {
@@ -38,10 +45,15 @@ public class map extends AppCompatActivity {
     SupportMapFragment smf;
     FusedLocationProviderClient client;
 
+    FirebaseAuth mAuth ;
+    FirebaseFirestore fstore;
+    String uid;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_map);
+
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         smf = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.google_map);
@@ -93,6 +105,25 @@ public class map extends AppCompatActivity {
 
                         googleMap.addMarker(markerOptions);
                         googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng,17));
+                        mAuth = FirebaseAuth.getInstance();
+                        uid = mAuth.getCurrentUser().getUid();
+
+                        fstore = FirebaseFirestore.getInstance();
+                        DocumentReference userRef = fstore.collection("foreman").document(uid);
+
+                        userRef.update("location", latLng)
+                                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                    @Override
+                                    public void onSuccess(Void aVoid) {
+                                        Log.d("Firestore", "String value successfully updated!");
+                                    }
+                                })
+                                .addOnFailureListener(new OnFailureListener() {
+                                    @Override
+                                    public void onFailure(@NonNull Exception e) {
+                                        Log.e("Firestore", "Error updating string value", e);
+                                    }
+                                });
                     }
                 });
             }

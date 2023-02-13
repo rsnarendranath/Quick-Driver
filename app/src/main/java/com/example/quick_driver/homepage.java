@@ -27,7 +27,7 @@ public class homepage extends AppCompatActivity {
         btn_user.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(homepage.this, map.class);
+                Intent intent = new Intent(homepage.this, user_login.class);
                 startActivity(intent);
                 finish();
             }

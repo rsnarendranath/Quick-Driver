@@ -16,6 +16,9 @@
         android:theme="@style/Theme.QuickDriver"
         tools:targetApi="31">
         <activity
+            android:name=".cardetail"
+            android:exported="false" />
+        <activity
             android:name=".map"
             android:exported="false" />
         <!--
