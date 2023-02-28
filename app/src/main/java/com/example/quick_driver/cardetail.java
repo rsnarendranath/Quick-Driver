@@ -20,6 +20,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.SetOptions;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -61,7 +62,7 @@ public class cardetail extends AppCompatActivity {
                 fstore = FirebaseFirestore.getInstance();
                 DocumentReference userRef = fstore.collection("users").document(uid);
 
-                userRef.update(updatedValues)
+                userRef.set(updatedValues, SetOptions.merge())
                         .addOnSuccessListener(new OnSuccessListener<Void>() {
                             @Override
                             public void onSuccess(Void aVoid) {

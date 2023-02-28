@@ -102,6 +102,7 @@ public class SignUpActivity extends AppCompatActivity {
                                 progressDialog.dismiss();
                                 Toast.makeText(SignUpActivity.this, "" + task.getException(), Toast.LENGTH_SHORT).show();
                             }
+
                         }
                     });
                 }

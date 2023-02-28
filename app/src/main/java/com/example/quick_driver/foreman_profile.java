@@ -19,7 +19,7 @@ import com.google.firebase.firestore.core.AsyncEventListener;
 
 public class foreman_profile extends AppCompatActivity {
 TextView n,e,p;
-Button back;
+Button back,updateprofile;
 FirebaseAuth fAuth;
 FirebaseFirestore fstore;
 String userid;
@@ -31,6 +31,7 @@ String userid;
         e=findViewById(R.id.email);
         p=findViewById(R.id.phone);
         back=findViewById(R.id.button9);
+        updateprofile=findViewById(R.id.button5);
         fAuth=FirebaseAuth.getInstance();
         fstore=FirebaseFirestore.getInstance();
         userid=fAuth.getCurrentUser().getUid();
@@ -48,6 +49,14 @@ String userid;
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(foreman_profile.this,forman_homepage.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+            }
+        });
+        updateprofile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(foreman_profile.this,update_driver_profile.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);
             }

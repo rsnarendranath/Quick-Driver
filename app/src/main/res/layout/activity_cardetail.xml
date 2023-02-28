@@ -19,7 +19,7 @@
             android:layout_marginTop="24dp"
             android:text="Car Details"
             android:textAlignment="center"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:textSize="50sp" />
         <EditText
             android:id="@+id/make_edit_text"

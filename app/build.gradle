@@ -7,6 +7,9 @@ plugins {
 android {
     namespace 'com.example.quick_driver'
     compileSdk 33
+    packagingOptions {
+        exclude 'META-INF/DEPENDENCIES'
+    }
 
     defaultConfig {
         applicationId "com.example.quick_driver"
@@ -33,19 +36,41 @@ android {
     }
 }
 
+
 dependencies {
     implementation 'com.google.maps.android:android-maps-utils:0.6.2'
     implementation 'androidx.appcompat:appcompat:1.6.0'
+    implementation 'com.google.api-client:google-api-client-android:1.31.1'
     implementation 'com.google.android.material:material:1.7.0'
     implementation 'com.google.android.gms:play-services-maps:18.1.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     implementation 'com.google.firebase:firebase-database:20.0.4'
-    implementation 'com.google.firebase:firebase-auth:21.1.0'
-    implementation 'com.google.firebase:firebase-firestore:24.4.1'
-    implementation 'com.google.android.gms:play-services-maps:18.1.0'
+    // implementation 'com.google.firebase:firebase-auth:21.1.0'
+    //  implementation 'com.google.firebase:firebase-firestore:23.0.3'
+    implementation 'com.google.firebase:firebase-auth:21.0.1'
+    implementation 'com.google.firebase:firebase-firestore:23.0.3'
+    implementation 'com.google.firebase:firebase-core:20.0.0'
+
+//    implementation 'com.google.firebase:firebase-firestore:24.4.1'
+//    implementation 'com.google.firebase:firebase-core:19.0.0'
+
+//map
     implementation 'com.google.android.gms:play-services-location:21.0.1'
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
     implementation 'com.karumi:dexter:6.2.1'
+
+
+   // implementation 'com.google.cloud:google-cloud-firestore:2.1.0'
+    //{
+//        exclude group: 'com.google.protobuf', module: 'protobuf-java'
+//    }
 }
+
+//implementation 'com.google.cloud:google-cloud-firestore:2.1.0'
+//   implementation 'com.google.api-client:google-api-client:1.31.2'
+//    implementation 'com.google.api-client:google-api-client-gson:1.31.2'
+//    implementation 'com.google.http-client:google-http-client-jackson2:1.39.2'
+//    implementation 'com.google.http-client:google-http-client-gson:1.39.2'
+//implementation 'com.google.guava:guava:31.0.1-android'

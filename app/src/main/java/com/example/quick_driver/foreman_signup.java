@@ -105,6 +105,7 @@ public class foreman_signup extends AppCompatActivity {
                                 progressDialog.dismiss();
                                 Toast.makeText(foreman_signup.this, "" + task.getException(), Toast.LENGTH_SHORT).show();
                             }
+
                         }
                     });
                 }
