@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".uhired_detail">
+    tools:context=".dhired_detail">
 
     <LinearLayout
         android:layout_width="416dp"
@@ -17,22 +17,12 @@
             android:id="@+id/textView3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Your Details" />
+            android:text="Your Ride Details" />
 
         <TextView
             android:id="@+id/textView"
             android:layout_width="376dp"
-            android:layout_height="144dp"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
-        <TextView
-            android:id="@+id/textView4"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Driver Details" />
-        <TextView
-            android:id="@+id/textViewf"
-            android:layout_width="372dp"
-            android:layout_height="141dp"
+            android:layout_height="182dp"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
 
@@ -72,7 +62,7 @@
         android:layout_height="70dp"
         android:layout_marginStart="115dp"
         android:layout_marginEnd="202dp"
-        android:text="See Drivers Location"
+        android:text="Start Ride"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.031"

@@ -36,25 +36,25 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 
-public class uhired_detail extends AppCompatActivity {
+public class dhired_detail extends AppCompatActivity {
     private TextView rideDetailsTextView,f;
-    Button c,l,b;
+    Button c,s,b;
     String driverid;
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_uhired_detail);
+        setContentView(R.layout.activity_dhired_detail);
         rideDetailsTextView = findViewById(R.id.textView);
         f = findViewById(R.id.textViewf);
         c=findViewById(R.id.button1);
         b=findViewById(R.id.button8);
-        l=findViewById(R.id.button7);
+        s=findViewById(R.id.button7);
         // Get current ride details from Firestore database
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
         String userId = currentUser.getUid();
-        DocumentReference documentReference=db.collection("users").document(userId);
+        DocumentReference documentReference=db.collection("foreman").document(userId);
         DocumentReference docRef = documentReference.collection("currentride").document("details");
         docRef.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
             @Override
@@ -71,29 +71,7 @@ public class uhired_detail extends AppCompatActivity {
 
                     TextView textView = findViewById(R.id.textView);
                     textView.setText(displayText);
-                    DocumentReference ddocumentReference=db.collection("foreman").document((String) docData.get("driverid"));
-                    ddocumentReference.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
-                        @Override
-                        public void onSuccess(DocumentSnapshot documentSnapshot) {
-                            if (documentSnapshot.exists()) {
-                                String displayText = "";
-                                Map<String, Object> docData = documentSnapshot.getData();
-                                displayText += "Name           : " + docData.get("name") +"\n";
-                                displayText += "Phone          : " + docData.get("phone") +"\n";
-                                displayText += "Email           : " + docData.get("email") +"\n";
-                                displayText += "Languages : " + docData.get("language") +"\n";
-                                displayText += "City              : " + docData.get("city") +"\n";
 
-                                TextView f = findViewById(R.id.textViewf);
-                                f.setText(displayText);
-                            }
-                        }
-                    }).addOnFailureListener(new OnFailureListener() {
-                        @Override
-                        public void onFailure(@NonNull Exception e) {
-                            Log.w(TAG, "Error getting document", e);
-                        }
-                    });
                 }
             }
 
@@ -104,10 +82,10 @@ public class uhired_detail extends AppCompatActivity {
             }
         });
 
-        l.setOnClickListener(new View.OnClickListener() {
+        s.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(uhired_detail.this,MainActivity.class);
+                Intent intent = new Intent(dhired_detail.this,dstartride.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);
             }
@@ -116,7 +94,7 @@ public class uhired_detail extends AppCompatActivity {
         c.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(uhired_detail.this,MainActivity.class);
+                Intent intent = new Intent(dhired_detail.this,forman_homepage.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);
             }
@@ -124,7 +102,7 @@ public class uhired_detail extends AppCompatActivity {
         b.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(uhired_detail.this,MainActivity.class);
+                Intent intent = new Intent(dhired_detail.this,forman_homepage.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);
             }

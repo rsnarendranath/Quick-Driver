@@ -16,10 +16,16 @@
         android:theme="@style/Theme.QuickDriver"
         tools:targetApi="31">
         <activity
+            android:name=".dstartride"
+            android:exported="false" />
+        <activity
             android:name=".update_driver_profile"
             android:exported="false" />
         <activity
             android:name=".uhired_detail"
+            android:exported="false" />
+        <activity
+            android:name=".dhired_detail"
             android:exported="false" />
         <activity
             android:name=".AfterHireRequestActivity"

@@ -52,7 +52,9 @@ public class cardetail extends AppCompatActivity {
                 EditText yearEditText = findViewById(R.id.year_edit_text);
                 String make = makeEditText.getText().toString();
                 String model = modelEditText.getText().toString();
-                int year = Integer.parseInt(yearEditText.getText().toString());
+                int year=0;
+                if(!yearEditText.getText().toString().isEmpty())
+                   year = Integer.parseInt(yearEditText.getText().toString());
                 uid = mAuth.getCurrentUser().getUid();
                 Map<String, Object> updatedValues = new HashMap<>();
                 updatedValues.put("make", make);
@@ -76,6 +78,7 @@ public class cardetail extends AppCompatActivity {
                                 Log.e("Firestore", "Error updating multiple strings", e);
                             }
                         });
+                sendUserToNextActivity();
             }
         });
     }
