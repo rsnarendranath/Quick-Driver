@@ -2,6 +2,7 @@ package com.example.quick_driver;
 
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.os.Bundle;
@@ -41,11 +42,14 @@ public class umap extends AppCompatActivity {
     FirebaseAuth mAuth ;
     FirebaseFirestore fstore;
     String uid;
-
+    LatLng value;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_umap);
+        Intent intent = getIntent();
+        value = intent.getParcelableExtra("location");
+        // replace "key" with the same string key used in the putExtra
 
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
@@ -98,25 +102,11 @@ public class umap extends AppCompatActivity {
 
                         googleMap.addMarker(markerOptions);
                         googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng,17));
-                        mAuth = FirebaseAuth.getInstance();
-                        uid = mAuth.getCurrentUser().getUid();
 
-                        fstore = FirebaseFirestore.getInstance();
-                        DocumentReference userRef = fstore.collection("foreman").document(uid);
+                        MarkerOptions markerOptionsd=new MarkerOptions().position(value).title("Your Driver is here...!!");
 
-                        userRef.update("location", latLng)
-                                .addOnSuccessListener(new OnSuccessListener<Void>() {
-                                    @Override
-                                    public void onSuccess(Void aVoid) {
-                                        Log.d("Firestore", "String value successfully updated!");
-                                    }
-                                })
-                                .addOnFailureListener(new OnFailureListener() {
-                                    @Override
-                                    public void onFailure(@NonNull Exception e) {
-                                        Log.e("Firestore", "Error updating string value", e);
-                                    }
-                                });
+                        googleMap.addMarker(markerOptionsd);
+                        googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng,17));
                     }
                 });
             }
