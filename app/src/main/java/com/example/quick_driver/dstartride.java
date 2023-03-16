@@ -52,8 +52,8 @@ public class dstartride extends AppCompatActivity {
         // Get current ride details from Firestore database
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
-        String userId = currentUser.getUid();
-        DocumentReference documentReference=db.collection("foreman").document(userId);
+        String driverid = currentUser.getUid();
+        DocumentReference documentReference=db.collection("foreman").document(driverid);
         DocumentReference docRef = documentReference.collection("currentride").document("details");
         docRef.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
             @Override
@@ -67,7 +67,7 @@ public class dstartride extends AppCompatActivity {
                     displayText += "To Date     : " + docData.get("datet") +"\n";
                     displayText += "Type          : " + docData.get("status") +"\n";
                     String startreading = (String) docData.get("stratreading");
-                    if(startreading==null){
+                    if(startreading==null || startreading.isEmpty()){
                         button.setVisibility(View.VISIBLE);
                         editText.setVisibility(View.VISIBLE);
 
@@ -153,7 +153,7 @@ public class dstartride extends AppCompatActivity {
         c.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(dstartride.this,forman_homepage.class);
+                Intent intent = new Intent(dstartride.this,dendride.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);
             }

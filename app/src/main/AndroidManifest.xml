@@ -16,6 +16,9 @@
         android:theme="@style/Theme.QuickDriver"
         tools:targetApi="31">
         <activity
+            android:name=".dendride"
+            android:exported="false" />
+        <activity
             android:name=".dstartride"
             android:exported="false" />
         <activity
