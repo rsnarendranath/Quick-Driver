@@ -4,6 +4,8 @@ import static com.example.quick_driver.SignUpActivity.TAG;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -37,7 +39,7 @@ import java.util.concurrent.TimeUnit;
 
 public class dendride extends AppCompatActivity {
     private EditText editTextCarReading;
-    private Button buttonSubmit;
+    private Button buttonSubmit, h;
     String userid;
     private static final double PER_DAY_ALLOWANCE = 500.0;
     private static final double NIGHT_STAY_ALLOWANCE = 250.0;
@@ -49,6 +51,7 @@ public class dendride extends AppCompatActivity {
         editTextCarReading = findViewById(R.id.editTextCarReading);
         buttonSubmit = findViewById(R.id.buttonSubmit);
         tableLayoutResults = findViewById(R.id.tableLayoutResults);
+        h = findViewById(R.id.ratingBar1);
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
         String driverid = currentUser.getUid();
@@ -205,6 +208,15 @@ public class dendride extends AppCompatActivity {
 
             }
         });
+        h.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(dendride.this,rating.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+            }
+        });
+
     }
     private void addTableRow(String title, String value) {
         TableRow row = new TableRow(this);
