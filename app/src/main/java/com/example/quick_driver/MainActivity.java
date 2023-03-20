@@ -67,6 +67,11 @@ public class MainActivity extends AppCompatActivity {
                             intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
                             startActivity(intent);
                         }
+                        else if (value.getString("status").equals("payment")) {
+                            Intent intent = new Intent(MainActivity.this,payment.class);
+                            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
+                            startActivity(intent);
+                        }
                         else{
                             String pass_value = "You do not have any current ride\n Go and book for a ride";
                             Intent intent = new Intent(MainActivity.this, AfterHireRequestActivity.class);

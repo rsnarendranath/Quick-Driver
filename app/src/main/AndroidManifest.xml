@@ -16,6 +16,15 @@
         android:theme="@style/Theme.QuickDriver"
         tools:targetApi="31">
         <activity
+            android:name=".pay"
+            android:exported="false" />
+        <activity
+            android:name=".urating"
+            android:exported="false" />
+        <activity
+            android:name=".payment"
+            android:exported="false" />
+        <activity
             android:name=".rating"
             android:exported="false" />
         <activity

@@ -50,7 +50,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-auth:21.0.1'
     implementation 'com.google.firebase:firebase-firestore:23.0.4'
     implementation 'com.google.firebase:firebase-core:20.0.0'
-
+    api 'com.razorpay:checkout:1.6.24'
 //    implementation 'com.google.firebase:firebase-firestore:24.4.1'
 //    implementation 'com.google.firebase:firebase-core:19.0.0'
 

@@ -102,6 +102,16 @@ public class rating extends AppCompatActivity {
                         .addOnFailureListener(e -> {
                             Log.e(TAG, "Error adding data: " + e.getMessage());
                         });
+                Map<String, Object> statusd = new HashMap<>();
+                statusd.put("status", "free");
+                documentReferenced.set(status, SetOptions.merge())
+                        .addOnSuccessListener(documentReference -> {
+                            Log.d(TAG, "Data added successfully: " + docRefu.getId());
+                        })
+                        .addOnFailureListener(e -> {
+                            Log.e(TAG, "Error adding data: " + e.getMessage());
+                        });
+
 
                 docRef.set(status, SetOptions.merge())
                         .addOnSuccessListener(documentReference -> {

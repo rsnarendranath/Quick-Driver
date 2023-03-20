@@ -42,7 +42,7 @@ boolean x;
         profile = findViewById(R.id.button);
         m=findViewById(R.id.button7);
         cr=findViewById(R.id.button8);
-        h=findViewById(R.id.button1);
+
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
         x =true;
@@ -101,14 +101,7 @@ boolean x;
 //
 //            }
 //        });
-        h.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(forman_homepage.this,foreman_profile.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
-                startActivity(intent);
-            }
-        });
+
 
         m.setOnClickListener(new View.OnClickListener() {
             @Override
