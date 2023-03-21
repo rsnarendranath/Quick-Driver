@@ -109,4 +109,10 @@ public class urating extends AppCompatActivity {
             }
         });
     }
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(urating.this, payment.class);
+        startActivity(intent);
+        finish();
+    }
 }

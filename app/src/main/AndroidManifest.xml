@@ -60,7 +60,7 @@
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyDnCrsPE6HSAvH6Bt8yO6D6hAz67QldI7c" />
+            android:value="AIzaSyB_m7_5qRgWGy5040Nuic1DowJwWbA6Ils" />
 
         <activity
             android:name=".foreman_login"

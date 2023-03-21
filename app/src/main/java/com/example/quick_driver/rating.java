@@ -172,4 +172,10 @@ public class rating extends AppCompatActivity {
             }
         });
     }
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(rating.this, dendride.class);
+        startActivity(intent);
+        finish();
+    }
 }

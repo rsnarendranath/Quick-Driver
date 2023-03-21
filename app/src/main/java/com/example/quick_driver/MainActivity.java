@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
 
-                        if (value.getString("status").equals("booked")) {
+                        if (value.getString("status").equals("booked")||value.getString("status").equals("started")) {
                             Intent intent = new Intent(MainActivity.this,uhired_detail.class);
                             intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
                             startActivity(intent);

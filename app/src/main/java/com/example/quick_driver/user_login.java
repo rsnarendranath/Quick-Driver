@@ -94,4 +94,9 @@ public class user_login extends AppCompatActivity {
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
     }
+    public void onBackPressed() {
+        Intent intent = new Intent(user_login.this, homepage.class);
+        startActivity(intent);
+        finish();
+    }
 }
