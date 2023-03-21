@@ -30,4 +30,10 @@ public class AfterHireRequestActivity extends AppCompatActivity {
             }
         });
     }
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(AfterHireRequestActivity.this, MainActivity.class);
+        startActivity(intent);
+        finish();
+    }
 }

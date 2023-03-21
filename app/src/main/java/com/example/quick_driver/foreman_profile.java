@@ -62,4 +62,10 @@ String userid;
             }
         });
     }
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(foreman_profile.this, forman_homepage.class);
+        startActivity(intent);
+        finish();
+    }
 }

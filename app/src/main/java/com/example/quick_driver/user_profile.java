@@ -52,4 +52,10 @@ public class user_profile extends AppCompatActivity {
             }
         });
     }
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(user_profile.this, MainActivity.class);
+        startActivity(intent);
+        finish();
+    }
 }

@@ -27,7 +27,7 @@ import java.util.Map;
 public class payment extends AppCompatActivity {
     private TableLayout tableLayoutResults;
     Button c,o;
-    String Totalfare;
+    String Totalfare,name;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +40,20 @@ public class payment extends AppCompatActivity {
         FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
         String driverid = currentUser.getUid();
         DocumentReference documentReference=db.collection("users").document(driverid);
+
+        documentReference.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+            @Override
+            public void onSuccess(DocumentSnapshot documentSnapshot) {
+                name = documentSnapshot.getString("name");
+                Log.d(TAG, "Name: " + name);
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Log.w(TAG, "Error getting document", e);
+            }
+        });
+
         DocumentReference docRef = documentReference.collection("currentride").document("details");
         docRef.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
             @Override
@@ -52,6 +66,7 @@ public class payment extends AppCompatActivity {
                     addTableRow("Perday Allowance",": "+  docData.get("perDayFare"));
                     addTableRow("Total Fare",": "+  docData.get("totalFare"));
                     Totalfare=docData.get("totalFare").toString();
+
                 }
             }
 
@@ -75,6 +90,7 @@ public class payment extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(payment.this,pay.class);
                 intent.putExtra("key",Totalfare);
+                intent.putExtra("name",name);
                 startActivity(intent);
             }
         });
@@ -91,5 +107,11 @@ public class payment extends AppCompatActivity {
         row.addView(textViewTitle);
         row.addView(textViewValue);
         tableLayoutResults.addView(row);
+    }
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(payment.this, MainActivity.class);
+        startActivity(intent);
+        finish();
     }
 }

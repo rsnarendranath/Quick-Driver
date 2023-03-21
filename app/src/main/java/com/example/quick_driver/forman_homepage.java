@@ -113,4 +113,10 @@ boolean x;
         });
 
     }
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(forman_homepage.this, homepage.class);
+        startActivity(intent);
+        finish();
+    }
 }

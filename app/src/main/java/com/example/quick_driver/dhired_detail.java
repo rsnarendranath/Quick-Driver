@@ -108,4 +108,10 @@ public class dhired_detail extends AppCompatActivity {
             }
         });
     }
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(dhired_detail.this, forman_homepage.class);
+        startActivity(intent);
+        finish();
+    }
 }

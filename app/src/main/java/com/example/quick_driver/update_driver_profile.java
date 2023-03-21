@@ -2,6 +2,7 @@ package com.example.quick_driver;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
@@ -64,6 +65,12 @@ public class update_driver_profile extends AppCompatActivity {
                         Toast.makeText(update_driver_profile.this, "Failed to update profile", Toast.LENGTH_SHORT).show();
                     });
         });
+    }
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(update_driver_profile.this, foreman_profile.class);
+        startActivity(intent);
+        finish();
     }
 }
 

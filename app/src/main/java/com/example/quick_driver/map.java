@@ -7,6 +7,7 @@ package com.example.quick_driver;
         import androidx.core.app.ActivityCompat;
 
         import android.Manifest;
+        import android.content.Intent;
         import android.content.pm.PackageManager;
         import android.location.Location;
         import android.nfc.Tag;
@@ -128,5 +129,11 @@ public class map extends AppCompatActivity {
                 });
             }
         });
+    }
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(map.this, forman_homepage.class);
+        startActivity(intent);
+        finish();
     }
 }

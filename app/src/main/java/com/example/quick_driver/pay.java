@@ -21,6 +21,7 @@ public class pay extends AppCompatActivity implements pay1 {
         setContentView(R.layout.activity_pay);
         btPay = findViewById(R.id.bt_pay);
         String sAmount=getIntent().getStringExtra("key");
+        String name=getIntent().getStringExtra("name");
         int amount= Math.round(Float.parseFloat(sAmount)*100);
         btPay.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -30,7 +31,7 @@ public class pay extends AppCompatActivity implements pay1 {
                 checkout.setImage(R.drawable.rzp_logo);
                 JSONObject object=new JSONObject();
                 try {
-                    object.put("name","kowshimani");
+                    object.put("name",name);
                     object.put("description","Test Payment");
                     object.put("theme.color","0093DD");
                     object.put("currency","INR");

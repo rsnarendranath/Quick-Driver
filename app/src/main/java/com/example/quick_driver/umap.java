@@ -112,4 +112,10 @@ public class umap extends AppCompatActivity {
             }
         });
     }
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(umap.this, uhired_detail.class);
+        startActivity(intent);
+        finish();
+    }
 }
