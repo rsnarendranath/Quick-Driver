@@ -7,6 +7,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TableLayout;
+import android.widget.TableRow;
 import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -18,29 +20,33 @@ import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.core.AsyncEventListener;
 
 public class user_profile extends AppCompatActivity {
-    TextView n,e,p;
     Button back;
     FirebaseAuth fAuth;
     FirebaseFirestore fstore;
     String userid;
+    private TableLayout tableLayoutResults;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_profile);
-        n=findViewById(R.id.name1);
-        e=findViewById(R.id.email1);
-        p=findViewById(R.id.phone1);
-        back=findViewById(R.id.button99);
+
+        back=findViewById(R.id.button9);
         fAuth=FirebaseAuth.getInstance();
         fstore=FirebaseFirestore.getInstance();
         userid=fAuth.getCurrentUser().getUid();
+        tableLayoutResults = findViewById(R.id.tableLayoutResults);
         DocumentReference documentReference=fstore.collection("users").document(userid);
         documentReference.addSnapshotListener(this, new EventListener<DocumentSnapshot>() {
             @Override
             public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
-                p.setText(value.getString("phone"));
-                e.setText(value.getString("email"));
-                n.setText(value.getString("name"));
+                addTableRow("","");
+                addTableRow("Name",": "+ value.getString("name"));
+                addTableRow("","");
+                addTableRow("Phone",": "+ value.getString("phone"));
+                addTableRow("","");
+                addTableRow("Email",": "+ value.getString("email"));
+
 
             }
         });
@@ -57,5 +63,17 @@ public class user_profile extends AppCompatActivity {
         Intent intent = new Intent(user_profile.this, MainActivity.class);
         startActivity(intent);
         finish();
+    }
+    private void addTableRow(String title, String value) {
+        TableRow row = new TableRow(this);
+        TextView textViewTitle = new TextView(this);
+        TextView textViewValue = new TextView(this);
+        textViewTitle.setText(title);
+        textViewTitle.setTextSize(21); // Increase font size here
+        textViewValue.setText(value);
+        textViewValue.setTextSize(20);
+        row.addView(textViewTitle);
+        row.addView(textViewValue);
+        tableLayoutResults.addView(row);
     }
 }
