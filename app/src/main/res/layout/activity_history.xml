@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".history">
+
+    <TableLayout
+        android:id="@+id/tableLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:padding="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView7"
+        tools:ignore="MissingConstraints">
+
+        <!-- Table Header -->
+        <TableRow>
+
+            <TextView
+                android:padding="4dp"
+                android:text="Username"
+                android:textStyle="bold" />
+
+            <TextView
+                android:padding="4dp"
+                android:text="Distance"
+                android:textStyle="bold" />
+
+            <TextView
+                android:padding="4dp"
+                android:text="Fare"
+                android:textStyle="bold" />
+
+            <TextView
+                android:padding="4dp"
+                android:text="Start Date"
+                android:textStyle="bold" />
+
+            <TextView
+                android:padding="4dp"
+                android:text="End Date"
+                android:textStyle="bold" />
+        </TableRow>
+
+        <!-- Table Rows -->
+        <TableRow
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:background="@color/white">
+
+            <TextView
+                android:id="@+id/username"
+                android:padding="4dp"
+                android:text="Username" />
+
+            <TextView
+                android:id="@+id/distance"
+                android:padding="4dp"
+                android:text="Distance" />
+
+            <TextView
+                android:id="@+id/fare"
+                android:padding="4dp"
+                android:text="Fare" />
+
+            <TextView
+                android:id="@+id/startdate"
+                android:padding="4dp"
+                android:text="Start Date" />
+
+            <TextView
+                android:id="@+id/enddate"
+                android:padding="4dp"
+                android:text="End Date" />
+        </TableRow>
+
+    </TableLayout>
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="105dp"
+        android:layout_height="31dp"
+        android:layout_marginStart="7dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="299dp"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
